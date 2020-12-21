@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import FormField from './FormField'
 import '../css/form.css';
 import{Link} from 'react-router-dom'
-import techniciansList from '../mocks/technicians';
-
 class EditForm extends Component {
   state = {value : this.props.res.fields.map((field,index) => {
     return {
       index,
       id: field.id,
-      value:this.props.data?this.props.data[techniciansList][field.id]:'',
+      value:this.props.techniciansList?this.props.techniciansList[0][field.id]:'',
       errorMsg: false,
       valid: false
     }
