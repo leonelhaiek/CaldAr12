@@ -4,7 +4,7 @@ import '../App.css';
 function boilersType () {
     return(
         <div>
-            <h1>  tipo de boilers paaa </h1>
+            <h1>  type of  boilers </h1>
         </div>
     )  
 }

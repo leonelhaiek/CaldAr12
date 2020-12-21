@@ -4,7 +4,7 @@ import{Link} from 'react-router-dom'
 
 function home() {
     const navStyle = {
-        color: 'black'
+        color: 'white'
     };
     return(
         <nav >
