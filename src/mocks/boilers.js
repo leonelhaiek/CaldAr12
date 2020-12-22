@@ -1,3 +1,9 @@
-const boilersList = [{"id":2,"rol":"THSKCKS","email":"dcrohan1@com","fullname":"Darya Crohan","phone":"5733616350","address":"26644 Arapahoe Trail","boiler":"A","capabilities":1,"hour_rate":200,"daily_capacity":7},{"id":3,"rol":"Julieta","email":"jbondar2@godaddy.com","fullname":"Julieta Bondar","phone":"8361874652","address":"7874 Sachs Plaza","boiler":"C","capabilities":2,"hour_rate":200,"daily_capacity":6},{"id":4,"rol":"Saxe","email":"smathwin3@yahoo.com","fullname":"Saxe Mathwin","phone":"2088966594","address":"3925 Dwight Crossing","boiler":"A","capabilities":1,"hour_rate":200,"daily_capacity":7}];
+const boilersList = 
+[
+  {"id":1,"description":"Morbi non lectus.","type":1,"maintenance_rate":"year","hour_maintaince_cost":452,"hour_eventual_cost":746},
+  {"id":2,"description":"Vestibulum quam sapien.","type":1,"maintenance_rate":"year","hour_maintaince_cost":406,"hour_eventual_cost":621},
+  {"id":4,"description":"Aliquam quis turpis eget.","type":3,"maintenance_rate":"month","hour_maintaince_cost":148,"hour_eventual_cost":586},
+  {"id":5,"description":"Maecenas leo odio, condimentum id.","type":3,"maintenance_rate":"year","hour_maintaince_cost":253,"hour_eventual_cost":532}
+];
 
 export default boilersList;
