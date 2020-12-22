@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import '../App.css';
+import {  Route, BrowserRouter as Router } from 'react-router-dom';
 import Header from '../components/Header';
-import boilersType from '../mocks/boilersType';
+import {boilersType} from '../mocks/index';
+import resources from '../resources/index';
 import TableFrame from '../components/TableFrame'
 import SearchBox from '../components/SearchBox'
 import PlusButton from '../components/PlusButton'
@@ -15,7 +17,7 @@ class boilersT extends Component {
       [
         {
           id: 1,
-          title: 'Boilers Type',
+          title: 'Type of Boilers',
           data: boilersType,
           fields:
             [//Order matters
