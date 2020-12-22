@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import {  Route, BrowserRouter as Router } from 'react-router-dom';
 import Header from '../components/Header';
-import technicians from '../mocks/index';
-import boilers from '../mocks/index';
+import {technicians, boilers} from '../mocks/index';
 import resources from '../resources/index';
 import TableFrame from '../components/TableFrame'
 import SearchBox from '../components/SearchBox'
