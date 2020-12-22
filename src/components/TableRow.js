@@ -13,7 +13,7 @@ class TableRow extends Component {
       }
     rowContent.push(
       <td key = {i}>
-        <Link to={`/edit/${this.props.data.id}`}>
+        <Link to={`/${this.props.route}/edit/${this.props.data.id}`}>
           <i className="material-icons">create</i>
         </Link>
         <button onClick = {this.props.delRes.bind(this,this.props.data.id)}><i className="material-icons">delete</i></button>  

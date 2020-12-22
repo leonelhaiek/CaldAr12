@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import '../css/header.css';
 
 class Header extends Component {
   render() {
     return (
       <header className="app-header">
-        <Link to="/">
+        <a href="/">
                 <i className="material-icons">arrow_back</i>
-        </Link>
+        </a>
         <p>
           {this.props.res.title}
         </p>

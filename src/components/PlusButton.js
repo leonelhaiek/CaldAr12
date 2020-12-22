@@ -5,7 +5,7 @@ import '../css/plusbutton.css';
 class PlusButton extends Component {
   render() {
     return (
-      <Link className="plus-button" to="/add">
+      <Link className="plus-button" to={this.props.path}>
         <i className="material-icons">add_circle</i>
       </Link>
     );

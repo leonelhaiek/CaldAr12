@@ -14,21 +14,15 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-      <Switch>
+        <Switch>
+        <Route exact path="/:resource" component={
+            technician}/>
         <Route path="/" exact component={home}/>
-        <Route path="/boilers" exact component={boilers}/>
-        <Route path="/buildings" exact component={buildings}/>
-        <Route path="/technician" exact component={technician}/>
-        <Route path="/companies" exact component={companies}/>
-        <Route path="/boilersType" exact component={boilersType}/>
-       
         </Switch>
-      </div>
-      
+          </div>
       </Router>
     );
   }
 }
-  
 
 export default App;
