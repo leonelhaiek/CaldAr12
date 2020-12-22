@@ -1,6 +1,6 @@
 const boilersTypeRes =
 {
-    id: 1,
+    id: 4,
     title: 'Type of Boilers',
     route: 'boilersType',
     fields:
@@ -15,9 +15,9 @@ const boilersTypeRes =
         title: 'Edit type of boiler',
         fields:
         [
-          {id:'Category',type: 'text', name:'Category', onError:'Must have at least 1 characters', pattern: /^[a-z;,]{1,}$/i},
-          {id:'Description',type: 'text', name:'Description', onError:'At least 6 characters. Ex: John Doe', pattern: /^([a-z]{2,}[\s]+)+([a-z]{2,})$/i},
-          {id:'Skills',type: 'text', name:'Skills', onError:'At least 6 characters. Ex: John Doe', pattern: /^([a-z]{2,}[\s]+)+([a-z]{2,})$/i},
+          {id:'category',type: 'text', name:'Category', onError:'Must have at least 1 characters', pattern: /^[a-z;,]{1,}$/i},
+          {id:'description',type: 'text', name:'Description', onError:'At least 6 characters. Ex: John Doe', pattern: /^([a-z]{2,}[\s]+)+([a-z]{2,})$/i},
+          {id:'skills',type: 'text', name:'Skills', onError:'At least 6 characters. Ex: John Doe', pattern: /^([a-z]{2,}[\s]+)+([a-z]{2,})$/i},
         ]
       },
       addForm:
@@ -25,9 +25,9 @@ const boilersTypeRes =
         title: 'Add new type of boiler' ,
         fields:
         [
-          {id:'Category',type: 'text', name:'Category', onError:'Must have at least 1 characters', pattern: /^[a-z;,]{1,}$/i},
-          {id:'Description',type: 'text', name:'Description', onError:'At least 6 characters. Ex: John Doe', pattern: /^([a-z]{2,}[\s]+)+([a-z]{2,})$/i},
-          {id:'Skills',type: 'text', name:'Skills', onError:'At least 6 characters. Ex: John Doe', pattern: /^([a-z]{2,}[\s]+)+([a-z]{2,})$/i},
+          {id:'category',type: 'text', name:'Category', onError:'Must have at least 1 characters', pattern: /^[a-z;,]{1,}$/i},
+          {id:'description',type: 'text', name:'Description', onError:'At least 6 characters. Ex: John Doe', pattern: /^([a-z]{2,}[\s]+)+([a-z]{2,})$/i},
+          {id:'skills',type: 'text', name:'Skills', onError:'At least 6 characters. Ex: John Doe', pattern: /^([a-z]{2,}[\s]+)+([a-z]{2,})$/i},
         ]
       }
 }
