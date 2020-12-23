@@ -5,7 +5,7 @@ import boilers from "./pages/boilers";
 import buildings from "./pages/buildings";
 import home from './pages/home';
 import technician from './pages/technician';
-import boilersType from './pages/boliersType';
+import boilersType from './pages/boilersType';
 import companies from './pages/companies';
 
 
@@ -14,21 +14,14 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-      <Switch>
-        <Route path="/" exact component={home}/>
-        <Route path="/boilers" exact component={boilers}/>
-        <Route path="/buildings" exact component={buildings}/>
-        <Route path="/technician" exact component={technician}/>
-        <Route path="/companies" exact component={companies}/>
-        <Route path="/boilersType" exact component={boilersType}/>
-       
-        </Switch>
-      </div>
-      
+          <Switch>
+            <Route exact path="/:resource" component={technician}/>
+            <Route path="/" exact component={home}/>
+          </Switch>
+        </div>
       </Router>
     );
   }
 }
-  
 
 export default App;

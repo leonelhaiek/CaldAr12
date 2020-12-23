@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import FormField from './FormField'
 import '../css/form.css';
 import{Link} from 'react-router-dom'
+import { withRouter } from "react-router";
 class EditForm extends Component {
   state = {value : this.props.res.fields.map((field,index) => {
     return {
       index,
       id: field.id,
-      value:this.props.techniciansList?this.props.techniciansList[0][field.id]:'',
+      value:this.props.data?this.props.data[0][field.id]:'',
       errorMsg: false,
       valid: false
     }
@@ -47,10 +48,13 @@ class EditForm extends Component {
     this.state.value.forEach( (input) => {
       pattern = this.props.res.fields.filter( field => field.id === input.id);
       valid = valid & this.validateInput(input.index,pattern[0].pattern,input.value);
+      console.log(input.id,valid);
     });
-    if(valid)
+    if(valid){
       this.props.editRes(this.props.data?this.props.data[0].id:-1,this.state.value);
-    this.props.history.push('/');
+      this.props.history.push(`/${this.props.route}`);
+    }
+
   }
   render() {
     let inputs = [];
@@ -70,7 +74,7 @@ class EditForm extends Component {
       <React.Fragment>
         <div className="form-header">
           <p>{this.props.res.title}</p>
-          <Link to="/">X</Link>
+          <Link to={`/${this.props.route}`}>X</Link>
         </div>
         <form onSubmit={this.onSubmit}>
           {inputs}
@@ -83,4 +87,4 @@ class EditForm extends Component {
   }
 }
 
-export default EditForm;
+export default withRouter(EditForm);

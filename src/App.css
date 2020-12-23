@@ -46,25 +46,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
 .card {
   width: 70%;
 	margin:auto;
 	padding: 10px;
 	margin-top: 10px;
-}
-nav{
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	min-height: 10vh;
-	background-color: rgb(35, 47, 62);
-	color: white;
-}
-.nav-links{
-	width: 40%;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	color: white;
 }
