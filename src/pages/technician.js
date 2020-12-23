@@ -9,8 +9,6 @@ import SearchBox from '../components/SearchBox'
 import PlusButton from '../components/PlusButton'
 import EditForm from '../components/EditForm'
 
-
-
 class tech extends Component {
   componentDidMount =  ()=>{
     console.log(this.props.match.params.resource)
@@ -99,14 +97,3 @@ class tech extends Component {
 }
 
 export default tech;
-
-
-
-
-
-
-
-
-
-
-
