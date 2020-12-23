@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import {  Route, BrowserRouter as Router } from 'react-router-dom';
 import Header from '../components/Header';
-import {technicians, boilers, boilersType, buildings} from '../mocks/index';
+import {technicians, boilers, boilersType, buildings, companies} from '../mocks/index';
 import resources from '../resources/index';
 import TableFrame from '../components/TableFrame'
 import SearchBox from '../components/SearchBox'
@@ -32,6 +32,11 @@ class tech extends Component {
         this.resources = buildings;
         this.forceUpdate();
         break;
+        case 'companies':
+          this.selRes = 4;
+          this.resources = companies;
+          this.forceUpdate();
+          break;
 
       default:
         this.selRes = 0;
