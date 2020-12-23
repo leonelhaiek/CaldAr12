@@ -16,8 +16,8 @@ const boilersTypeRes =
         fields:
         [
           {id:'category',type: 'text', name:'Category', onError:'Must have at least 1 characters', pattern: /^[a-z;,]{1,}$/i},
-          {id:'description',type: 'text', name:'Description', onError:'At least 6 characters. Ex: John Doe', pattern: /^([a-z]{2,}[\s]+)+([a-z]{2,})$/i},
-          {id:'skills',type: 'text', name:'Skills', onError:'At least 6 characters. Ex: John Doe', pattern: /^([a-z]{2,}[\s]+)+([a-z]{2,})$/i},
+          {id:'description',type: 'text', name:'Description', onError:'At least 6 characters. Ex: John Doe', pattern: /[0-9a-zA-Z]{6,}/i},
+          {id:'skills',type: 'text', name:'Skills', onError:'At least 6 characters. Ex: John Doe', pattern: /[0-9a-zA-Z]{6,}/i},
         ]
       },
       addForm:
@@ -26,8 +26,8 @@ const boilersTypeRes =
         fields:
         [
           {id:'category',type: 'text', name:'Category', onError:'Must have at least 1 characters', pattern: /^[a-z;,]{1,}$/i},
-          {id:'description',type: 'text', name:'Description', onError:'At least 6 characters. Ex: John Doe', pattern: /^([a-z]{2,}[\s]+)+([a-z]{2,})$/i},
-          {id:'skills',type: 'text', name:'Skills', onError:'At least 6 characters. Ex: John Doe', pattern: /^([a-z]{2,}[\s]+)+([a-z]{2,})$/i},
+          {id:'description',type: 'text', name:'Description', onError:'At least 6 characters. Ex: John Doe', pattern: /[0-9a-zA-Z]{6,}/i},,
+          {id:'skills',type: 'text', name:'Skills', onError:'At least 6 characters. Ex: John Doe', pattern: /[0-9a-zA-Z]{6,}/i},,
         ]
       }
 }
