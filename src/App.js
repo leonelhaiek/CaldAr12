@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
-import boilers from "./pages/boilers";
-import buildings from "./pages/buildings";
 import home from './pages/home';
-import technician from './pages/technician';
-import boilersType from './pages/boilersType';
-import companies from './pages/companies';
+import genericResource from './pages/genericResource';
+
 
 
 class App extends Component {
@@ -15,7 +12,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route exact path="/:resource" component={technician}/>
+            <Route exact path="/:resource" component={genericResource}/>
             <Route path="/" exact component={home}/>
           </Switch>
         </div>

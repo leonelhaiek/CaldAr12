@@ -27,17 +27,16 @@ class tech extends Component {
         this.resources = boilersType;
         this.forceUpdate();
         break;
-        case 'buildings':
+      case 'buildings':
         this.selRes = 3;
         this.resources = buildings;
         this.forceUpdate();
         break;
-        case 'companies':
+      case 'companies':
           this.selRes = 4;
           this.resources = companies;
           this.forceUpdate();
           break;
-
       default:
         this.selRes = 0;
         this.resources = technicians;
