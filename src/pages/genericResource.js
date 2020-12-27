@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../App.css';
 import {  Route, BrowserRouter as Router } from 'react-router-dom';
 import Header from '../components/Header';
-import {technicians, boilers, boilersType, buildings, companies} from '../mocks/index';
 import resources from '../resources/index';
 import TableFrame from '../components/TableFrame'
 import SearchBox from '../components/SearchBox'
@@ -11,45 +10,83 @@ import EditForm from '../components/EditForm'
 
 class tech extends Component {
   componentDidMount =  ()=>{
-    console.log(this.props.match.params.resource)
+
     switch(this.props.match.params.resource){
-      case 'technician':
-        this.resources = technicians;
-        this.selRes = 0;
+      case 'technicians':
+        fetch('http://localhost:5000/api/technicians')
+        .then( response => response.json())
+        .then( (data) => {this.resources = data
+          this.selRes = 0;
+          this.forceUpdate();
+        })
+        .catch( (e) => {
+          console.log('ERROR');
+        })
         break;
       case 'boilers':
-        this.selRes = 1;
-        this.resources = boilers;
-        this.forceUpdate();
+        fetch('http://localhost:5000/api/boilers')
+        .then( response => response.json())
+        .then( (data) => {this.resources = data
+          this.selRes = 1;
+          this.forceUpdate();
+        })
+        .catch( (e) => {
+          console.log('ERROR');
+        })
         break;
       case 'boilersType':
-        this.selRes = 2;
-        this.resources = boilersType;
-        this.forceUpdate();
+        fetch('http://localhost:5000/api/boilersType')
+        .then( response => response.json())
+        .then( (data) => {this.resources = data
+          this.selRes = 2;
+          this.forceUpdate();
+        })
+        .catch( (e) => {
+          console.log('ERROR');
+        })
         break;
       case 'buildings':
-        this.selRes = 3;
-        this.resources = buildings;
-        this.forceUpdate();
+        fetch('http://localhost:5000/api/buildings')
+        .then( response => response.json())
+        .then( (data) => {this.resources = data
+          this.selRes = 3;
+          this.forceUpdate();
+        })
+        .catch( (e) => {
+          console.log('ERROR');
+        })       
         break;
       case 'companies':
+        fetch('http://localhost:5000/api/companies')
+        .then( response => response.json())
+        .then( (data) => {this.resources = data
           this.selRes = 4;
-          this.resources = companies;
           this.forceUpdate();
+        })
+        .catch( (e) => {
+          console.log('ERROR');
+        })       
           break;
       default:
-        this.selRes = 0;
-        this.resources = technicians;
+        fetch('http://localhost:5000/api/boilers')
+        .then( response => response.json())
+        .then( (data) => {this.resources = data
+          this.selRes = 1;
+          this.forceUpdate();
+        })
+        .catch( (e) => {
+          console.log('ERROR');
+        })
         break;
     }
   };
   selRes = 0;
-  resources = technicians;
+  resources = [];
   state = { resources: resources }
 
   delRes = (id) => {
     const len = this.resources.length;
-    this.resources = this.resources.filter((res) => (res.id !== parseInt(id)) );
+    this.resources = this.resources.filter((res) => (res._id !== id) );
     if(this.resources.length < len) this.forceUpdate();
   }
   editRes = (id,fields) => {
@@ -58,12 +95,12 @@ class tech extends Component {
       fields.forEach( (field) => {
         newRes[field.id] = field.value;
       });
-      newRes['id'] = Math.round(100000 * Math.random());
+      newRes['_id'] = Math.round(100000 * Math.random());
       this.resources.push(newRes);
     }
     else{
       this.resources.forEach((res) => {
-        if(res.id === id){
+        if(res._id === id){
           fields.forEach( (field) => {
             res[field.id] = field.value;
           });
@@ -93,7 +130,7 @@ class tech extends Component {
           )} />
           <Route exact path={`/${this.state.resources[this.selRes].route}/edit/:id`} render={props => (
             <EditForm
-              data={this.resources.filter((res) => (res.id === parseInt(props.match.params.id)) )}
+              data={this.resources.filter((res) => (res._id === props.match.params.id) )}
               res={this.state.resources[this.selRes].editForm}
               editRes={this.editRes}
               route={this.state.resources[this.selRes].route}

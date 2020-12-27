@@ -2,7 +2,7 @@ const technicianRes =
 {
   id: 1,
   title: 'Technicians',
-  route: 'technician',
+  route: 'technicians',
   fields:
     [//Order matters
       'Rol',
