@@ -6,42 +6,60 @@ import {
 } from '../types'
 
 const initialState = {
-  resourceList: [],
+  resourceList: [{'_id':'asdjhahsd','field':'No data available'}],
   error: null,
-  isLoading: false,
-  resourceObject: {}
+  isLoading: true,
+  resourceObject: {
+    title: 'Loading',
+    route: 'loading',
+    fields:
+      [//Order matters
+        'No data available',
+        'Actions'
+      ],
+      editForm:
+      {
+        title: 'No data available',
+        fields:
+        [
+          {id:'field',type: 'number', name:'No data available', onError:'Reload the page', pattern: /^[a-z]{3,}$/i},
+        ]
+      },
+      addForm:
+      {
+        title: 'No data available' ,
+        fields:
+        [
+          {id:'field',type: 'number', name:'No data available', onError:'Reload the page', pattern: /^[a-z]{3,}$/i},
+        ]
+      }
+  }
 }
 
 const resourceReducer = ( state = initialState, action) => {
   switch(action.type) {
       case GET_RESOURCE_FETCHING:
+      console.log(GET_RESOURCE_FETCHING);
       return {
           ...state,
           isLoading: true
       }
       case GET_RESOURCE_FULFILLED:
+      console.log(GET_RESOURCE_FULFILLED);
       return {
           ...state,
           isLoading: false,
           resourceList: action.payload,
-          resourceObject: () => {
-            switch(action.resource){
-              case 'technicians':
-                return resources[0];
-              case 'boilers':
-                return resources[1];
-              case 'boilersType':
-                return resources[2];
-              case 'buildings':
-                return resources[3];
-              case 'companies':
-                return resources[4];
-              default:
-                return resources[0];
-              }
-            }
+          resourceObject: (action.resource === 'technicians')?resources[0]:
+                          (action.resource === 'boilers')?resources[1]:
+                          (action.resource === 'boilersType')?resources[2]:
+                          (action.resource === 'buildings')?resources[3]:
+                          (action.resource === 'companies')?resources[4]:
+                          resources[0]
+            
       }
       case GET_RESOURCE_REJECTED:
+      console.log(GET_RESOURCE_REJECTED);
       return {
           ...state,
           isLoading: false,
