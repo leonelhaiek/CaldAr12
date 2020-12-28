@@ -9,7 +9,13 @@ class TableFrame extends Component {
     });
     let rows = [];
     this.props.data.forEach(element => {
-      rows.push(<TableRow data={element} route={this.props.res.route} fields={this.props.res.fields} key={element._id} delRes={this.props.delRes} editRes={this.props.editRes}/>);
+      rows.push(<TableRow data={element} 
+                  route={this.props.res.route}
+                  fields={this.props.res.fields}
+                  key={element._id}
+                  delRes={this.props.delRes}
+                  editRes={this.props.editRes}
+                />);
     });
     return (
       <table className="resource-table">

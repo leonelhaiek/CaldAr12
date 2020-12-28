@@ -7,7 +7,7 @@ import TableFrame from '../components/TableFrame'
 import SearchBox from '../components/SearchBox'
 import PlusButton from '../components/PlusButton'
 import EditForm from '../components/EditForm'
-import { getResource } from '../redux/actions';
+import { getResource,deleteResource } from '../redux/actions';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -19,11 +19,13 @@ const Tech = (props) => {
  
 
   const delRes = (id) => {
+    deleteResource(id,props.match.params.resource);
     // const len = this.resources.length;
     // this.resources = this.resources.filter((res) => (res._id !== id) );
     // if(this.resources.length < len) this.forceUpdate();
   }
   const editRes = (id,fields) => {
+    // ID -1 means that form is adding a new element to the resource list
     // if(id === -1){
     //   let newRes = {};
     //   fields.forEach( (field) => {
@@ -79,7 +81,8 @@ const Tech = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    getResource: getResource
+    getResource: getResource,
+    deleteResource: deleteResource
   }, dispatch);
 };
 
