@@ -2,7 +2,10 @@ import resources from '../../resources/index';
 import {
   GET_RESOURCE_FETCHING,
   GET_RESOURCE_FULFILLED,
-  GET_RESOURCE_REJECTED
+  GET_RESOURCE_REJECTED,
+  UPDATE_RESOURCE_FETCHING,
+  UPDATE_RESOURCE_FULFILLED,
+  UPDATE_RESOURCE_REJECTED
 } from '../types'
 
 const initialState = {
@@ -56,7 +59,6 @@ const resourceReducer = ( state = initialState, action) => {
                           (action.resource === 'buildings')?resources[3]:
                           (action.resource === 'companies')?resources[4]:
                           resources[0]
-            
       }
       case GET_RESOURCE_REJECTED:
       console.log(GET_RESOURCE_REJECTED);
@@ -65,9 +67,37 @@ const resourceReducer = ( state = initialState, action) => {
           isLoading: false,
           error: 'ERROR'
       }
+      case UPDATE_RESOURCE_FETCHING:
+  console.log(UPDATE_RESOURCE_FETCHING);
+  return {
+      ...state,
+      isLoading: true
+  }
+  case UPDATE_RESOURCE_FULFILLED:
+  console.log(UPDATE_RESOURCE_FULFILLED);
+  return {
+      ...state,
+      isLoading: false,
+      resourceList: action.payload,
+      resourceObject: (action.resource === 'technicians')?resources[0]:
+                      (action.resource === 'boilers')?resources[1]:
+                      (action.resource === 'boilersType')?resources[2]:
+                      (action.resource === 'buildings')?resources[3]:
+                      (action.resource === 'companies')?resources[4]:
+                      resources[0]
+  }
+  case  UPDATE_RESOURCE_REJECTED:
+  console.log( UPDATE_RESOURCE_REJECTED);
+  return {
+      ...state,
+      isLoading: false,
+      error: 'ERROR'
+  }
       default:
         return state;
     }
 }
 
 export default resourceReducer;
+
+
