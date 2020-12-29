@@ -8,7 +8,7 @@ function home() {
             <h1>CaldAr</h1>
             <div className="container">
                 <button className="homeButton"><Link className="link" to='/boilers'>Boilers</Link></button>
-                <button className="homeButton"><Link className="link" to='/boilersType'>Type of Boilers</Link></button>
+                <button className="homeButton"><Link className="link" to='/boilersType'>Types of Boilers</Link></button>
                 <button className="homeButton"><Link className="link" to='/technicians'>Technicians</Link></button>
                 <button className="homeButton"><Link className="link" to='/buildings'>Buildings</Link></button>
                 <button className="homeButton"><Link className="link" to='/companies'>Companies</Link></button>

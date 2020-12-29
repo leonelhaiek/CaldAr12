@@ -7,7 +7,7 @@ import TableFrame from '../components/TableFrame'
 import SearchBox from '../components/SearchBox'
 import PlusButton from '../components/PlusButton'
 import EditForm from '../components/EditForm'
-import { getResource,deleteResource } from '../redux/actions';
+import { getResource,deleteResource, addResource } from '../redux/actions';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -25,24 +25,24 @@ const Tech = (props) => {
     // if(this.resources.length < len) this.forceUpdate();
   }
   const editRes = (id,fields) => {
-    // ID -1 means that form is adding a new element to the resource list
-    // if(id === -1){
-    //   let newRes = {};
-    //   fields.forEach( (field) => {
-    //     newRes[field.id] = field.value;
-    //   });
-    //   newRes['_id'] = Math.round(100000 * Math.random());
-    //   this.resources.push(newRes);
-    // }
-    // else{
-    //   this.resources.forEach((res) => {
-    //     if(res._id === id){
-    //       fields.forEach( (field) => {
-    //         res[field.id] = field.value;
-    //       });
-    //     }
-    //   })
-    // }
+    if(id === -1){
+      let newRes = {};
+      fields.forEach( (field) => {
+        newRes[field.id] = field.value;
+      });
+      addResource(newRes, props.match.params.resource); 
+      newRes['_id'] = Math.round(100000 * Math.random());
+      this.resources.push(newRes);
+    }
+    else{
+      this.resources.forEach((res) => {
+        if(res._id === id){
+          fields.forEach( (field) => {
+            res[field.id] = field.value;
+          });
+        }
+      })
+    }
   }
 
     return (
@@ -82,7 +82,8 @@ const Tech = (props) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     getResource: getResource,
-    deleteResource: deleteResource
+    deleteResource: deleteResource,
+    addResource: addResource
   }, dispatch);
 };
 

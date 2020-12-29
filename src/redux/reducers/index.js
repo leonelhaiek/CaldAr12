@@ -2,7 +2,10 @@ import resources from '../../resources/index';
 import {
   GET_RESOURCE_FETCHING,
   GET_RESOURCE_FULFILLED,
-  GET_RESOURCE_REJECTED
+  GET_RESOURCE_REJECTED,
+  ADD_RESOURCE_FETCHING,
+  ADD_RESOURCE_FULFILLED,
+  ADD_RESOURCE_REJECTED,
 } from '../types'
 
 const initialState = {
@@ -64,6 +67,23 @@ const resourceReducer = ( state = initialState, action) => {
           ...state,
           isLoading: false,
           error: 'ERROR'
+      }
+      case  ADD_RESOURCE_FETCHING:
+      return {
+          ...state,
+          isLoading: true
+      }
+      case ADD_RESOURCE_FULFILLED:
+      return {
+         ...state,
+         isLoading: false,
+         resourceList: [state.resourceList, action.resource]
+      }
+      case ADD_RESOURCE_REJECTED:
+      return {
+        ...state,
+        isLoading: true,
+        error: 'ERROR'
       }
       default:
         return state;
