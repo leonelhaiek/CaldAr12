@@ -63,7 +63,6 @@ const resourceReducer = ( state = initialState, action) => {
                           (action.resource === 'buildings')?resources[3]:
                           (action.resource === 'companies')?resources[4]:
                           resources[0]
-            
       }
       case GET_RESOURCE_REJECTED:
       return {
@@ -127,3 +126,5 @@ const resourceReducer = ( state = initialState, action) => {
 }
 
 export default resourceReducer;
+
+
