@@ -77,12 +77,12 @@ const resourceReducer = ( state = initialState, action) => {
       return {
          ...state,
          isLoading: false,
-         resourceList: [state.resourceList, action.resource]
+         resourceList: [...state.resourceList, action.payload]
       }
       case ADD_RESOURCE_REJECTED:
       return {
         ...state,
-        isLoading: true,
+        isLoading: false,
         error: 'ERROR'
       }
       default:

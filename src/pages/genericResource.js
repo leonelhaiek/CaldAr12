@@ -30,9 +30,7 @@ const Tech = (props) => {
       fields.forEach( (field) => {
         newRes[field.id] = field.value;
       });
-      addResource(newRes, props.match.params.resource); 
-      newRes['_id'] = Math.round(100000 * Math.random());
-      this.resources.push(newRes);
+      props.addResource(newRes, props.match.params.resource); 
     }
     else{
       this.resources.forEach((res) => {
@@ -44,7 +42,6 @@ const Tech = (props) => {
       })
     }
   }
-
     return (
       <Router>
       <div>

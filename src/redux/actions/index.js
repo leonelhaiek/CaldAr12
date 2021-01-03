@@ -59,6 +59,7 @@ const addResourceRejected = () => ({
 
 export const addResource = (payload,resource) => dispatch => {
   dispatch(addResourceFetching());
+  console.log(payload);
   return fetch( URL + resource, {
     method: 'POST',
     headers: {
