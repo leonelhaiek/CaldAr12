@@ -7,7 +7,7 @@ import TableFrame from '../components/TableFrame'
 import SearchBox from '../components/SearchBox'
 import PlusButton from '../components/PlusButton'
 import EditForm from '../components/EditForm'
-import { getResource,deleteResource, addResource } from '../redux/actions';
+import { getResource,deleteResource,addResource,updateResource } from '../redux/actions';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -19,10 +19,7 @@ const Tech = (props) => {
  
 
   const delRes = (id) => {
-    deleteResource(id,props.match.params.resource);
-    // const len = this.resources.length;
-    // this.resources = this.resources.filter((res) => (res._id !== id) );
-    // if(this.resources.length < len) this.forceUpdate();
+    props.deleteResource(id,props.match.params.resource);
   }
   const editRes = (id,fields) => {
     if(id === -1){
@@ -33,11 +30,12 @@ const Tech = (props) => {
       props.addResource(newRes, props.match.params.resource); 
     }
     else{
-      this.resources.forEach((res) => {
+      props.resourceList.forEach((res) => {
         if(res._id === id){
           fields.forEach( (field) => {
             res[field.id] = field.value;
           });
+          props.updateResource(res, props.match.params.resource);
         }
       })
     }
@@ -80,7 +78,8 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     getResource: getResource,
     deleteResource: deleteResource,
-    addResource: addResource
+    addResource: addResource,
+    updateResource: updateResource
   }, dispatch);
 };
 

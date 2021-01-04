@@ -98,7 +98,7 @@ export const updateResource = (payload,resource) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ payload })      
+      body: JSON.stringify( payload )      
     })
       .then(res => res.json())
       .then(data => {

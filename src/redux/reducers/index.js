@@ -6,6 +6,12 @@ import {
   ADD_RESOURCE_FETCHING,
   ADD_RESOURCE_FULFILLED,
   ADD_RESOURCE_REJECTED,
+  DELETE_RESOURCE_FETCHING,
+  DELETE_RESOURCE_FULFILLED,
+  DELETE_RESOURCE_REJECTED,
+  UPDATE_RESOURCE_FETCHING,
+  UPDATE_RESOURCE_FULFILLED,
+  UPDATE_RESOURCE_REJECTED,
 } from '../types'
 
 const initialState = {
@@ -42,13 +48,11 @@ const initialState = {
 const resourceReducer = ( state = initialState, action) => {
   switch(action.type) {
       case GET_RESOURCE_FETCHING:
-      console.log(GET_RESOURCE_FETCHING);
       return {
           ...state,
           isLoading: true
       }
       case GET_RESOURCE_FULFILLED:
-      console.log(GET_RESOURCE_FULFILLED);
       return {
           ...state,
           isLoading: false,
@@ -62,7 +66,6 @@ const resourceReducer = ( state = initialState, action) => {
             
       }
       case GET_RESOURCE_REJECTED:
-      console.log(GET_RESOURCE_REJECTED);
       return {
           ...state,
           isLoading: false,
@@ -80,6 +83,39 @@ const resourceReducer = ( state = initialState, action) => {
          resourceList: [...state.resourceList, action.payload]
       }
       case ADD_RESOURCE_REJECTED:
+      return {
+        ...state,
+        isLoading: false,
+        error: 'ERROR'
+      }
+      case  DELETE_RESOURCE_FETCHING:
+      return {
+          ...state,
+          isLoading: true
+      }
+      case  DELETE_RESOURCE_FULFILLED:
+      return {
+         ...state,
+         isLoading: false,
+         resourceList: state.resourceList.filter((resourceItem) => resourceItem._id !== action.payload)
+      }
+      case  DELETE_RESOURCE_REJECTED:
+      return {
+        ...state,
+        isLoading: false,
+        error: 'ERROR'
+      }
+      case  UPDATE_RESOURCE_FETCHING:
+      return {
+          ...state,
+          isLoading: true
+      }
+      case  UPDATE_RESOURCE_FULFILLED:
+      return {
+         ...state,
+         isLoading: false,
+      }
+      case  UPDATE_RESOURCE_REJECTED:
       return {
         ...state,
         isLoading: false,
