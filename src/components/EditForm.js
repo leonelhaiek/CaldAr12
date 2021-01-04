@@ -48,10 +48,9 @@ class EditForm extends Component {
     this.state.value.forEach( (input) => {
       pattern = this.props.res.fields.filter( field => field.id === input.id);
       valid = valid & this.validateInput(input.index,pattern[0].pattern,input.value);
-      console.log(input.id,valid);
     });
     if(valid){
-      this.props.editRes(this.props.data?this.props.data[0].id:-1,this.state.value);
+      this.props.editRes(this.props.data?this.props.data[0]._id:-1,this.state.value);
       this.props.history.push(`/${this.props.route}`);
     }
 
