@@ -3,6 +3,7 @@ import FormField from './FormField'
 import '../css/form.css';
 import{Link} from 'react-router-dom'
 import { withRouter } from "react-router";
+import {Form, Field} from 'react-final-form';
 class EditForm extends Component {
   state = {value : this.props.res.fields.map((field,index) => {
     return {
@@ -71,19 +72,19 @@ class EditForm extends Component {
     });
     return (
       <React.Fragment>
-        <div className="form-header">
-          <p>{this.props.res.title}</p>
-          <Link to={`/${this.props.route}`}>X</Link>
+      <div className="form-header">
+        <p>{this.props.res.title}</p>
+        <Link to={`/${this.props.route}`}>X</Link>
+      </div>
+      <form onSubmit={this.onSubmit}>
+        {inputs}
+        <div className="submit-container">
+          <input type="submit" value="Confirm"/>
         </div>
-        <form onSubmit={this.onSubmit}>
-          {inputs}
-          <div className="submit-container">
-            <input type="submit" value="Confirm"/>
-          </div>
-        </form>
-      </React.Fragment>
-    );
-  }
+      </form>
+    </React.Fragment>
+  );
+}
 }
 
 export default withRouter(EditForm);
