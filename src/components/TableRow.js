@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { showModal } from '../redux/actions/modalActions'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 //import './App.css';
 
 class TableRow extends Component {
+
   render() {
     let i = 0;
     let rowContent = [];
@@ -13,10 +16,8 @@ class TableRow extends Component {
       }
     rowContent.push(
       <td key = {i}>
-        <Link to={`/${this.props.route}/edit/${this.props.data._id}`}>
-          <i className="material-icons">create</i>
-        </Link>
-        <button onClick = {this.props.delRes.bind(this,this.props.data._id)}><i className="material-icons">delete</i></button>  
+          <button onClick={() => this.props.editRes(this.props.data._id)}><i className="material-icons">create</i></button>
+          <button onClick = {this.props.delRes.bind(this,this.props.data._id)}><i className="material-icons">delete</i></button>  
       </td>);
     return (
         <tr>
@@ -26,4 +27,16 @@ class TableRow extends Component {
   }
 }
 
-export default TableRow;
+//export default TableRow;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    showModal: showModal
+  }, dispatch);
+};
+
+const mapStateToProps = state => {
+  return {
+  }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(TableRow);

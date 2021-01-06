@@ -21,7 +21,6 @@ const Tech = (props) => {
   },[]);
  
   const showAddModal = () => {
-    console.log("showAddModal");
     props.showModal(modalTypes.ADD_RESOURCE, {
       res: props.resourceObject.addForm,
       editRes: editRes,

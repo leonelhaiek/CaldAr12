@@ -9,10 +9,8 @@ const initialState = {
   meta: {}
 };
 const modalReducer = ( state = initialState, action) => {
-  console.log("modalReducer:",action.type);
   switch (action.type) {
     case SHOW_MODAL:
-      console.log("Show modal:",action.modalType);
       return {
         ...state,
         show: true,
