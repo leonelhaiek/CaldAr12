@@ -22,21 +22,21 @@ const Tech = (props) => {
  
   const showAddModal = () => {
     console.log("showAddModal");
-    showModal(modalTypes.ADD_RESOURCE, {
+    props.showModal(modalTypes.ADD_RESOURCE, {
       res: props.resourceObject.addForm,
       editRes: editRes,
       route: props.resourceObject.route
     });
   };
   const showDeleteModal = (resourceId) => {
-    showModal(modalTypes.DELETE_RESOURCE, {
+    props.showModal(modalTypes.DELETE_RESOURCE, {
       id: resourceId,
       route: props.resourceObject.route,
       delRes: delRes
     });
   };
   const showEditModal = (resourceId) => {
-    showModal(modalTypes.EDIT_RESOURCE, {
+    props.showModal(modalTypes.EDIT_RESOURCE, {
       data: props.resourceList.filter((res) => (res._id === resourceId) ),
       res: props.resourceObject.editForm,
       editRes: editRes,

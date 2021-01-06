@@ -8,17 +8,16 @@ import { bindActionCreators } from 'redux'
 const RemoveResourceMessage = ({
   closeModal,
   deleteResource,
-  resource,
-  resourceId
+  meta
 }) => {
   const onDeleteResource = () => {
-    deleteResource(resource,resourceId);
+    deleteResource(meta.id,meta.route);
     closeModal();
   }
 
   return (
     <div>
-      Are you sure you want to delete this {resource}?
+      Are you sure you want to delete this {meta.route}?
       <div>
         <button onClick={() => closeModal()}>Cancel</button>
         <button onClick={() => onDeleteResource()}>Confirm</button>
@@ -37,9 +36,10 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = state => {
   return {
-    resourceList: state.resourceList,
-    resourceObject: state.resourceObject,
-    isLoading: state.isLoading
+    resourceList: state.resource.resourceList,
+    resourceObject: state.resource.resourceObject,
+    isLoading: state.resource.isLoading,
+    meta: state.modal.meta
   }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(RemoveResourceMessage);

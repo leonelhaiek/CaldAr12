@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import FormField from './FormField'
 import '../css/form.css';
-import{Link} from 'react-router-dom'
-import { withRouter } from "react-router";
+import { closeModal } from '../redux/actions/modalActions'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
 class EditForm extends Component {
   state = {value : this.props.res.fields.map((field,index) => {
     return {
@@ -51,7 +53,8 @@ class EditForm extends Component {
     });
     if(valid){
       this.props.editRes(this.props.data?this.props.data[0]._id:-1,this.state.value);
-      this.props.history.push(`/${this.props.route}`);
+      //this.props.history.push(`/${this.props.route}`);
+      this.props.closeModal();
     }
 
   }
@@ -73,7 +76,7 @@ class EditForm extends Component {
       <React.Fragment>
         <div className="form-header">
           <p>{this.props.res.title}</p>
-          <Link to={`/${this.props.route}`}>X</Link>
+          <p onClick={this.props.closeModal}>X</p>
         </div>
         <form onSubmit={this.onSubmit}>
           {inputs}
@@ -85,5 +88,15 @@ class EditForm extends Component {
     );
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    closeModal: closeModal
+  }, dispatch);
+};
 
-export default withRouter(EditForm);
+const mapStateToProps = state => {
+  return {
+  }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(EditForm);

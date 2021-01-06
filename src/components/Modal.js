@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
-    boxShadow: theme.shadow[5],
+    //boxShadow: theme.shadow[5],
     padding: theme.spacing(2,4,3),
     outline: 0,
   }
@@ -38,7 +38,7 @@ const Modal = ({
   meta,
   closeModal
 }) => {
-  // const classes = useStyles();
+  const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
 
   let modalComponent;
@@ -77,8 +77,7 @@ const Modal = ({
       aria-labelledby="simple-modal-title"
       aria-describedby="simple-modal-description"
     >
-      <div style={modalStyle} >
-        {/* className={classes.paper}> */}
+      <div style={modalStyle} className={classes.paper}>
         {modalComponent}
       </div>
     </MaterialModal>
