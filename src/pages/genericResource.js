@@ -7,9 +7,8 @@ import TableFrame from '../components/TableFrame'
 import SearchBox from '../components/SearchBox'
 //import PlusButton from '../components/PlusButton'
 import '../css/plusbutton.css';
-import EditForm from '../components/EditForm'
-import { getResource,deleteResource,addResource,updateResource } from '../redux/actions';
-import { showModal,closeModal } from '../redux/actions/modalActions';
+import { getResource,deleteResource,addResource,updateResource } from '../redux/actions/resourceActions';
+import { showModal } from '../redux/actions/modalActions';
 import Modal from '../components/Modal'
 import { modalTypes } from '../redux/types/modalTypes';
 import { connect } from 'react-redux'
@@ -22,6 +21,7 @@ const Tech = (props) => {
   },[]);
  
   const showAddModal = () => {
+    console.log("showAddModal");
     showModal(modalTypes.ADD_RESOURCE, {
       res: props.resourceObject.addForm,
       editRes: editRes,
@@ -76,26 +76,12 @@ const Tech = (props) => {
               <SearchBox />
               <TableFrame data = {props.resourceList} res = {props.resourceObject} delRes = {showDeleteModal} editRes = {showEditModal}/>
               <div className="plus-button">
-                <button  onClick={showAddModal}><i className="material-icons">add_circle</i></button>
+                <button  onClick={() => showAddModal()}><i className="material-icons">add_circle</i></button>
               </div>
             </React.Fragment>
           )} />
-          <Route exact path={`/${props.resourceObject.route}/add`} render={properties => (
-            <EditForm
-              res = {props.resourceObject.addForm}
-              editRes={editRes}
-              route={props.resourceObject.route}
-            />
-          )} />
-          <Route exact path={`/${props.resourceObject.route}/edit/:id`} render={properties => (
-            <EditForm
-              data={props.resourceList.filter((res) => (res._id === properties.match.params.id) )}
-              res={props.resourceObject.editForm}
-              editRes={editRes}
-              route={props.resourceObject.route}
-            />
-          )} />
         </div>
+        <Modal/>
       </div>
     </Router>
     );
@@ -114,9 +100,9 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = state => {
   return {
-    resourceList: state.resourceList,
-    resourceObject: state.resourceObject,
-    isLoading: state.isLoading
+    resourceList: state.resource.resourceList,
+    resourceObject: state.resource.resourceObject,
+    isLoading: state.resource.isLoading
   }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Tech);

@@ -11,7 +11,7 @@ import {
   DELETE_RESOURCE_FETCHING,
   DELETE_RESOURCE_FULFILLED,
   DELETE_RESOURCE_REJECTED
-} from '../types'
+} from '../types/resourceTypes'
 
 
 

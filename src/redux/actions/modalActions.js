@@ -4,6 +4,7 @@ import {
 } from '../types/modalTypes';
 
 export const showModal = (modalType, meta = {}) => {
+  console.log("Action showModal type:", modalType);
   return {
     type: SHOW_MODAL,
     modalType,

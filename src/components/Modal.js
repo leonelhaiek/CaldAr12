@@ -38,7 +38,7 @@ const Modal = ({
   meta,
   closeModal
 }) => {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
 
   let modalComponent;
@@ -77,7 +77,8 @@ const Modal = ({
       aria-labelledby="simple-modal-title"
       aria-describedby="simple-modal-description"
     >
-      <div style={modalStyle} className={classes.paper}>
+      <div style={modalStyle} >
+        {/* className={classes.paper}> */}
         {modalComponent}
       </div>
     </MaterialModal>

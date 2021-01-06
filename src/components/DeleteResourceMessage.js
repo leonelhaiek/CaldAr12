@@ -1,4 +1,4 @@
-import { deleteResource } from '../redux/actions';
+import { deleteResource } from '../redux/actions/resourceActions';
 import { connect } from 'react-redux'
 import { closeModal } from '../redux/actions/modalActions'
 import { bindActionCreators } from 'redux'
