@@ -1,0 +1,21 @@
+.delete-prompt {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 5px;
+  width: 100%;
+  font-size: 22px;
+}
+.delete-prompt div,.delete-prompt p{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding: 10px;
+  color: black;
+}
+
+.delete-prompt button{
+  width: 30%;
+  font-size: 22px;
+  background-color: rgb(136,0,0);
+  color: white;
+}

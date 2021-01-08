@@ -1,25 +1,27 @@
-form {
+.edit-form {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  padding: 5px;
   order: 4;
   width: 100%;
 }
-form div {
+.edit-form div {
   min-height: 100px;
   width: 100%;
 }
-div > label {
+.edit-form div > label {
   font-weight: bold;
   font-size: 30px;
 }
-div > input{
-  width: 100%;
+.edit-form div > input{
+  width: 95%;
   font-size: 20px;
   padding: 5px 0px;
-  margin: 5px 0px;
+  border: 1px solid black;
+  margin: 5px auto;
 }
-div > p {
+.edit-form div > p {
   color: red;
   font-weight: bold;
 }
@@ -30,14 +32,14 @@ div > p {
   text-align: center;
   font-size: 50px;
 }
-.submit-container{
+.edit-form .submit-container{
   display: flex;
   width: 100%;
   text-decoration: none;
   justify-content: center;
   align-items: center;
 }
-.submit-container input{
+.edit-form .submit-container input{
   width: 50%;
   font-size: 30px;
   background-color: rgb(136,0,0);
@@ -54,13 +56,9 @@ div > p {
   color: white;
 
 }
-.form-header a{
-  text-decoration: none;
-  color: white;
-}
 /* Show form in two columns*/
 @media (min-width: 768px) {
-  form div {
+  .edit-form div {
       width: 47%;
   }
 }

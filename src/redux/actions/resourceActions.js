@@ -11,7 +11,7 @@ import {
   DELETE_RESOURCE_FETCHING,
   DELETE_RESOURCE_FULFILLED,
   DELETE_RESOURCE_REJECTED
-} from '../types'
+} from '../types/resourceTypes'
 
 
 
@@ -31,7 +31,6 @@ const getResourceRejected = () => ({
 });
 
 export const getResource = (resource) => dispatch => {
-  console.log('getResource');
   dispatch(getResourceFetching());
   return fetch( URL + resource )
     .then(data => data.json())
@@ -59,7 +58,6 @@ const addResourceRejected = () => ({
 
 export const addResource = (payload,resource) => dispatch => {
   dispatch(addResourceFetching());
-  console.log(payload);
   return fetch( URL + resource, {
     method: 'POST',
     headers: {

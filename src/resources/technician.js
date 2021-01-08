@@ -21,8 +21,8 @@ const technicianRes =
       title: 'Edit technician',
       fields:
       [
-        {id:'boiler',type: 'text', name:'Boilers', onError:'Must have at least 1 characters', pattern: /^[a-z;,]{1,}$/i},
-        {id:'capabilities',type: 'text', name:'Capabilities', onError:'Must have at least 3 characters', pattern: /^[a-z]{1,}$/i},
+        {id:'boiler',type: 'text', name:'Boilers', onError:'Must have at least 24 characters', pattern: /^[0-9a-z;,]{24,}$/i},
+        {id:'capabilities',type: 'text', name:'Capabilities', onError:'Must have at least 24 characters', pattern: /^[0-9a-z;,]{24,}$/i},
         {id:'rol',type: 'text', name:'Rol', onError:'Must have at least 3 characters', pattern: /^[a-zA-Z\s]*$/i},
         {id:'email',type: 'email', name:'Email', onError:'Invalid email', pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/},
         {id:'fullname',type: 'text', name:'Full Name', onError:'At least 6 characters. Ex: John Doe', pattern: /^([a-z]{2,}[\s]+)+([a-z]{2,})$/i},
@@ -37,8 +37,8 @@ const technicianRes =
       title: 'Add new technician' ,
       fields:
       [
-        {id:'boiler',type: 'text', name:'Boilers', onError:'Must have at least 1 characters', pattern:  /[0-9a-zA-Z]{1,}$/i},
-        {id:'capabilities',type: 'text', name:'Capabilities', onError:'Must have at least 3 characters', pattern: /[0-9a-zA-Z]{1,}$/i},
+        {id:'boiler',type: 'text', name:'Boilers', onError:'Must have at least 24 characters', pattern:  /[0-9a-z;,]{24,}$/i},
+        {id:'capabilities',type: 'text', name:'Capabilities', onError:'Must have at least 24 characters', pattern: /[0-9a-z;,]{24,}$/i},
         {id:'rol',type: 'text', name:'Rol', onError:'Must have at least 3 characters', pattern: /^[a-zA-Z\s]*$/i},
         {id:'email',type: 'email', name:'Email', onError:'Invalid email', pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/},
         {id:'fullname',type: 'text', name:'Full Name', onError:'At least 6 characters. Ex: John Doe', pattern: /^([a-z]{2,}[\s]+)+([a-z]{2,})$/i},
