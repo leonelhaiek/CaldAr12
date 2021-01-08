@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
 import '../App.css';
-// import {  Route, BrowserRouter as Router } from 'react-router-dom';
 import Header from '../components/Header';
-// import resources from '../resources/index';
 import TableFrame from '../components/TableFrame'
 import SearchBox from '../components/SearchBox'
-//import PlusButton from '../components/PlusButton'
 import '../css/plusbutton.css';
 import { getResource,deleteResource,addResource,updateResource } from '../redux/actions/resourceActions';
 import { showModal } from '../redux/actions/modalActions';
