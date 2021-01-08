@@ -4,12 +4,15 @@
   align-items: center;
   color: #FFF;
 }
-
+.app-header button {
+  background: transparent;
+  border: 0;
+  outline: none;
+}
 .app-header i {
   padding: 15px;
   color: #FFF;
 }
-
 .app-header p {
   font-size: 30px;
   margin: auto;

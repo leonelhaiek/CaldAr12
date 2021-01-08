@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import '../App.css';
-import {  Route, BrowserRouter as Router } from 'react-router-dom';
+// import {  Route, BrowserRouter as Router } from 'react-router-dom';
 import Header from '../components/Header';
 // import resources from '../resources/index';
 import TableFrame from '../components/TableFrame'
@@ -66,25 +66,18 @@ const Tech = (props) => {
     }
   }
     return (
-      <Router>
-      <div>
-      <Header res = {props.resourceObject}/>
-        <div className="card">
-          <Route exact path={`/${props.resourceObject.route}`} render={properties => (
-            <React.Fragment>
-              <SearchBox />
-              <TableFrame data = {props.resourceList} res = {props.resourceObject} delRes = {showDeleteModal} editRes = {showEditModal}/>
-              <div className="plus-button">
-                <button  onClick={() => showAddModal()}><i className="material-icons">add_circle</i></button>
-              </div>
-            </React.Fragment>
-          )} />
+      <React.Fragment>
+        <Header res = {props.resourceObject}/>
+          <div className="card">
+            <SearchBox />
+            <TableFrame data = {props.resourceList} res = {props.resourceObject} delRes = {showDeleteModal} editRes = {showEditModal}/>
+            <div className="plus-button">
+              <button  onClick={() => showAddModal()}><i className="material-icons">add_circle</i></button>
+            </div>
         </div>
         <Modal/>
-      </div>
-    </Router>
+      </React.Fragment>
     );
-
 }
 
 const mapDispatchToProps = (dispatch) => {
