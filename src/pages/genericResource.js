@@ -43,19 +43,15 @@ const Tech = (props) => {
   const delRes = (id) => {
     props.deleteResource(id,props.resourceObject.route);
   }
-  const editRes = (id,fields) => {
+  const editRes = (id,values) => {
     if(id === -1){
-      let newRes = {};
-      fields.forEach( (field) => {
-        newRes[field.id] = field.value;
-      });
-      props.addResource(newRes, props.resourceObject.route); 
+      props.addResource(values, props.resourceObject.route); 
     }
     else{
       props.resourceList.forEach((res) => {
         if(res._id === id){
-          fields.forEach( (field) => {
-            res[field.id] = field.value;
+          Object.keys(values).forEach( (field) => {
+            res[field] = values[field];
           });
           props.updateResource(res, props.resourceObject.route);
         }

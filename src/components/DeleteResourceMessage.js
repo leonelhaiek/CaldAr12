@@ -17,7 +17,7 @@ const RemoveResourceMessage = ({
 
   return (
     <div>
-      Are you sure you want to delete thisresource from {meta.route}?
+      Are you sure you want to delete this element from {meta.route}?
       <div>
         <button onClick={() => closeModal()}>Cancel</button>
         <button onClick={() => onDeleteResource()}>Confirm</button>
