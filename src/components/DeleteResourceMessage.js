@@ -1,7 +1,8 @@
 import { deleteResource } from '../redux/actions/resourceActions';
-import { connect } from 'react-redux'
-import { closeModal } from '../redux/actions/modalActions'
-import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux';
+import { closeModal } from '../redux/actions/modalActions';
+import { bindActionCreators } from 'redux';
+import '../css/deletemessage.css';
 
 
 
@@ -16,8 +17,10 @@ const RemoveResourceMessage = ({
   }
 
   return (
-    <div>
-      Are you sure you want to delete this element from {meta.route}?
+    <div className="delete-prompt">
+      <p>
+        Are you sure you want to delete this element from {meta.route}?
+      </p>
       <div>
         <button onClick={() => closeModal()}>Cancel</button>
         <button onClick={() => onDeleteResource()}>Confirm</button>

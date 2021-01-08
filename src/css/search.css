@@ -1,6 +1,7 @@
 .search-container {
   display: flex;
   justify-content: flex-end;
+  padding: 5px;
 }
 
 .search-container i {

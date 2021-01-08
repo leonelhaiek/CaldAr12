@@ -36,7 +36,7 @@ class EditForm extends Component {
           initialValues={this.initValueGenerator()}
           onSubmit={ formObj => this.onSubmit(formObj)}>
           {({ handleSubmit }) => (
-            <form onSubmit={handleSubmit}>
+            <form className="edit-form" onSubmit={handleSubmit}>
               {inputs}
               <div className="submit-container">
                 <input type="submit" value="Confirm"/>
