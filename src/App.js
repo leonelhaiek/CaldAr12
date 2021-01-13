@@ -12,8 +12,10 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route exact path="/:resource" component={genericResource}/>
+            <Route exact path="/resources/:resource" component={genericResource}/>
             <Route path="/" exact component={home}/>
+            <Route path="/login" exact component={home}/>
+            <Route path="/signup" exact component={home}/>
           </Switch>
         </div>
       </Router>
