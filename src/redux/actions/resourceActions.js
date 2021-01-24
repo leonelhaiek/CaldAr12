@@ -69,7 +69,8 @@ export const addResource = (payload,resource) => dispatch => {
   return fetch( URL + resource, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+	  token: localStorage.getItem('token')
     },
     body: JSON.stringify(payload)
   } )
@@ -102,7 +103,8 @@ export const updateResource = (payload,resource) => {
     return fetch(`${URL}${resource}/${payload._id}`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+		token: localStorage.getItem('token')
       },
       body: JSON.stringify( payload )      
     })
@@ -135,7 +137,13 @@ const deleteResourceRejected = () => ({
 
 export const deleteResource = (id,resource) => dispatch => {
   dispatch(deleteResourceFetching());
-  return fetch( `${URL}${resource}/${id}`, { method: 'DELETE'} )
+  return fetch( `${URL}${resource}/${id}`, { 
+	method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+	  token: localStorage.getItem('token')}
+    }
+	)
     .then(data => data.json())
     .then(() => {
       dispatch(deleteResourceFulfilled(id,resource));
