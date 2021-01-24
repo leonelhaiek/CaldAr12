@@ -6,8 +6,8 @@ import {
   LOGOUT_FETCHING,
   LOGOUT_FULFILLED,
   LOGOUT_REJECTED
-} from '../types/authActions';
-
+} from '../types/authTypes';
+import firebase from '../../firebase'
   
 const loginFetching = () => {
   return {
@@ -29,7 +29,7 @@ const loginRejected = () => {
 
 export const loginWithFirebase = credentials => dispatch=> {
   dispatch(loginFetching());
-  return firebase.auth().signInWithEmailandPassword(credentials.email, credentials.password)
+  return firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
     .then(async(response) =>{
       const token = await response.user.getIdToken();
       localStorage.setItem('token',token);

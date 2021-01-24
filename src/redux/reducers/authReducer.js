@@ -6,7 +6,7 @@ import {
   LOGOUT_FETCHING,
   LOGOUT_FULFILLED,
   LOGOUT_REJECTED
-} from '../types/authActions';
+} from '../types/authTypes';
 
 const initialState = {
   isLoading: false,
@@ -14,7 +14,7 @@ const initialState = {
   authenticated: false
 };
 
-const todosReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_FETCHING:
       return {
@@ -60,3 +60,6 @@ const todosReducer = (state = initialState, action) => {
       return state;
   }
 }
+
+
+export default authReducer;
