@@ -34,21 +34,24 @@ const App = ({
           <Switch>
             <Route exact path="/resources/:resource" component={genericResource}/>
             <Route path="/" exact component={home}/>
+            <Redirect path='/login' to='/' />
           </Switch>
         </div>
       </Router>
     );
   }
-  return (
-    <Router>
-      <div className="App">
-        <Switch>
-          <Route path="/login" exact component={login}/>
-          <Redirect path='/' to='/login' />
-        </Switch>
-      </div>
-    </Router>
-  );
+  else{
+    return (
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route path="/login" exact component={login}/>
+            <Redirect path='/' to='/login' />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 };
 
 const mapStateToProps = state => {

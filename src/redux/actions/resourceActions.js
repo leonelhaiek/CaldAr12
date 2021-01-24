@@ -32,7 +32,15 @@ const getResourceRejected = () => ({
 
 export const getResource = (resource) => dispatch => {
   dispatch(getResourceFetching());
-  return fetch( URL + resource )
+  return fetch( URL + resource, {
+    method: 'GET',
+    mode: 'cors',
+    headers:
+    { 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      token: localStorage.getItem('token')}
+  } )
     .then(data => data.json())
     .then((response) => {
       dispatch(getResourceFulfilled(response,resource));

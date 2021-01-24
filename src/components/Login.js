@@ -23,7 +23,6 @@ const Login = ({ login}) => {
     name:'Password',
     onError:'Must have at least 8 characters with numbers and letters',
     pattern: /^[a-zA-Z]{8,}$/
-    //pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
   }
     
   return (
